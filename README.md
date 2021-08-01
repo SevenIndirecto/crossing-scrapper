@@ -11,9 +11,9 @@ Setup env with [poetry](https://python-poetry.org/)
 1. `poetry shell` This will create a virtual env
 2. `cp cron.sample.py cron.py`, make it executable `chmod +x cron.py` and update the shebang path.
     You can get get the path by running `poetry env info`
-3. 
+3. `poetry install`
 
-Run `cron.sample.py`
+Run `cron.py`
 
 ### Visualizer
 
@@ -26,13 +26,13 @@ yarn serve
 
 ## Production
 
-## Setting up the scrapper
+### Setting up the scrapper
 
 Setup a cron job to run the scrapper periodically. A cron.sample.py file is provided.
 
-1. 
-2. 
-3. 
+1. Setup `poetry` similarly to the development flow
+2. in `cron.py` you can also change `test.history.json` path to `history.json`
+3. Add a `crontab -e` entry
 
 Example cron entry:
 
@@ -40,8 +40,7 @@ Example cron entry:
 0,30 * * * * `/some/path/scrapper/cron.py`
 ```
 
-
-## Setting up the visualizer
+### Setting up the visualizer
 
 1. Run `yarn build`
 2. Copy content of `dist` to a webserver
