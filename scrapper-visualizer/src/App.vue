@@ -305,6 +305,10 @@ export default {
     },
     getMinutesFromDescription(time_desc) {
       time_desc = time_desc.trim();
+      if (time_desc === 'Višesatna čekanja') {
+        // Let's say this means 5 hours, aka too much
+        return 5 * 60;
+      }
       if (time_desc === 'do 30 min.') {
         return 30;
       }
@@ -317,7 +321,7 @@ export default {
       }
 
       if (time_desc !== '-') {
-        console.warning('Strange empty detected', time_desc);
+        console.info('Strange empty detected', time_desc);
       }
 
       return 0;
